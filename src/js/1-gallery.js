@@ -1,6 +1,6 @@
-`use strict`;
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox'; 
+import 'simplelightbox/dist/simple-lightbox.min.css'; 
+
 const images = [
   {
     preview:
@@ -66,24 +66,26 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-const gallery = document.querySelector('.gallery');
-const listItems = images
-  .map(({ preview, original, description }) => {
-    return `
-      <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-          <img
-            class="gallery-image"
-            src="${preview}"
-            data-source="${original}"
-            alt="${description}"
-          />
-        </a>
-      </li>`;
-  })
+
+const galleryContainer = document.querySelector('.gallery');
+
+const galleryMarkup = images
+  .map(
+    ({ preview, original, description }) => `
+        <li class="gallery-item">
+          <a class="gallery-link" href="${original}">
+            <img class="gallery-image" src="${preview}" alt="${description}" />
+          </a>
+        </li>
+      `
+  )
   .join('');
-gallery.innerHTML = listItems;
+
+galleryContainer.innerHTML = galleryMarkup;
+
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
+  captionPosition: 'bottom',
 });
+
