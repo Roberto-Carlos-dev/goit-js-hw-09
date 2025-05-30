@@ -1,6 +1,6 @@
 let formData = {
-  email: '',
-  message: '',
+  email: "",
+  message: "",
 };
 
 const form = document.querySelector('.feedback-form');
